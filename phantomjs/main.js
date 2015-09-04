@@ -130,7 +130,9 @@ page.onInitialized = function() {
   page.evaluate(function() {
     /*jshint browser:true, devel:true */
     document.addEventListener('DOMContentLoaded', function() {
-      alert('inject');
+      if (window.PHANTOMJS.bridgeAutoInject !== false) {
+        alert('inject');
+      }
     }, false);
   });
 };
